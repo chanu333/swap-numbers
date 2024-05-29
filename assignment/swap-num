@@ -1,0 +1,53 @@
+
+fn swap_numbers( num1:i32, num2: i32) ->(i32, i32) {
+    //std::mem::swap( num1, num2);
+    //just swap the values instead of changing the values in the memory
+    let (num1, num2) = (num2, num1);
+    return(num1,num2);
+
+    
+    
+}
+
+fn main() {
+    
+    let a = 100;
+    let b = 20000;
+    let (swapped_a, swapped_b) = swap_numbers(a, b);
+
+    println!("Swapped values: a = {}, b = {}", swapped_a, swapped_b);
+    
+    
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_swap_1_2() {
+        assert_eq!(swap_numbers(1, 2), (2, 1));
+    }
+
+    #[test]
+    fn test_swap_0_0() {
+        assert_eq!(swap_numbers(0, 0), (0, 0));
+    }
+
+    #[test]
+    fn test_swap_minus1_1() {
+        assert_eq!(swap_numbers(-1, 1), (1, -1));
+    }
+
+    #[test]
+    fn test_swap_123_456() {
+        assert_eq!(swap_numbers(123, 456), (456, 123));
+    }
+
+    #[test]
+    fn test_swap_5_6() {
+        assert_eq!(swap_numbers(5, 6), (6, 5));
+    }
+}
+
+
